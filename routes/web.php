@@ -16,3 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// This is for sample route
+Route::get('/sample-test', function () {
+    return config('app.env');
+});
+
+
+/* Below the code for create the sample route 
+*/
+
+Route::get('/about-us', function(){
+    return "hello dinesh";
+});
+
+// Below the code send the parameter
+
+Route::get('/user/{id}' , function($id){
+    return "User id is " . $id;
+});
