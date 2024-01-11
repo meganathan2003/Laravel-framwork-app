@@ -54,7 +54,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view('show',compact('employee'));
     }
 
     /**
@@ -62,7 +62,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        // return to edit and set the employee in compact
         return view('edit',compact('employee'));
     }
 
@@ -71,9 +71,20 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
+        /**
+         * Below the code for validation 
+         */
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:employees,email,'.$employee->id.'|email',
+            'joining_date' => 'required',
+            'salary' => 'required'
+        ]);
+
         // Update the user data
          $data = $request->all();        
-         $employee->update($data);
+         $employee->update($data); // This is also mass assginment
+         return redirect(route('employee.edit',$employee->id))->withSucess('Employee updated SucessFully');
     }
 
     /**

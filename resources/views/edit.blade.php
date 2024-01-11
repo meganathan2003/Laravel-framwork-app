@@ -1,6 +1,13 @@
 <!-- Below the code just for we have to write the directive like import -->
 @extends('layouts.app')
 @section('rowContent')
+@if(session()->has('message'))
+<div class="alert alert-sucess">
+    <!-- We can access using session method -->
+    {{session()->get('message')}} 
+</div>
+@endif
+<a style="color:black;" href="{{route('employee.index')}}">Back the Employee List</a>
 <div class="card">
     <div class="card-body">
         <p style="font-size:20px; font-weight:bold;">Update Employee</p>
