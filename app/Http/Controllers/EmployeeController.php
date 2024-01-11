@@ -87,6 +87,7 @@ class EmployeeController extends Controller
          return redirect(route('employee.edit',$employee->id))->withSucess('Employee updated SucessFully');
     }
 
+    
     /**
      * Remove the specified resource from storage.
      */
