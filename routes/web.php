@@ -3,6 +3,8 @@
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Models\Employee;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,4 +73,5 @@ Route::get('/employees/{employee}/edit',[EmployeeController::class,'edit'])->nam
 
 Route::put('/employees/{employee}',[EmployeeController::class,'update'])->name('employee.update');
 
+Route::delete('/employees',[EmployeeController::class,'destroy'])->name('employee.delete'); // This code for delete the employee
 

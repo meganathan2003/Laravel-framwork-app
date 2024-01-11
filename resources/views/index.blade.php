@@ -2,8 +2,8 @@
 @extends('layouts.app')
 @section('rowContent')
 @if(session()->has('message'))
+<!-- We can access using session method -->
 <div class="alert alert-sucess">
-    <!-- We can access using session method -->
     {{session()->get('message')}} 
 </div>
 @endif
@@ -37,7 +37,11 @@
                             <td>
                                 <a href="{{route('employee.show',$employee->id)}}" class="btn btn-primary btn-xs py-0">Show</a>
                                 <a href="{{route('employee.edit',$employee->id)}}" class="btn btn-warning btn-xs py-0">Edit</a>
-                                <button type="submit" class="btn btn-danger btn-xs py-0">Delete</button>
+                                <form action="" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-xs py-0">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

@@ -90,9 +90,11 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Employee $employee)
     {
-        //
+        $employee->delete(); // mass assignment
+        return redirect()->route('employee.index');
+        // return view('index');
 
     }
 }
