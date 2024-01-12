@@ -4,7 +4,7 @@ use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Employee;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,11 +67,16 @@ Route::get('/employees/create',[EmployeeController::class,'create'])->name('empl
 
 Route::post('/employees/store',[EmployeeController::class,'store'])->name('employee.store'); // This line routing is routing for employee store in controller
 
+// Route::get('/employees',function(){
+//     return Auth::employees();
+// });
+
+
 Route::get('/employees/{employee}',[EmployeeController::class,'show'])->name('employee.show'); // {} vanthu id diff ah change akum so
 
 Route::get('/employees/{employee}/edit',[EmployeeController::class,'edit'])->name('employee.edit');
 
 Route::put('/employees/{employee}',[EmployeeController::class,'update'])->name('employee.update');
 
-Route::delete('/employees',[EmployeeController::class,'destroy'])->name('employee.delete'); // This code for delete the employee
+Route::delete('/employees/{employee}',[EmployeeController::class,'destroy'])->name('employee.delete'); // This code for delete the employee
 

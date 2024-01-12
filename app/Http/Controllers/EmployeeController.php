@@ -87,11 +87,12 @@ class EmployeeController extends Controller
          return redirect(route('employee.edit',$employee->id))->withSucess('Employee updated SucessFully');
     }
 
-    
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Employee $employee)
+    
     {
         $employee->delete(); // mass assignment
         return redirect()->route('employee.index');

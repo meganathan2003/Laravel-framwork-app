@@ -6,7 +6,7 @@
         <p style="font-size:20px; font-weight:bold;">Employee details</p>
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" value="{{$employee->id}}" readonly>
+            <input type="text" class="form-control" value="{{$employee->name}}" readonly>
         </div>
 
         <div class="form-group">
